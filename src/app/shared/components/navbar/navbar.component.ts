@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { selectOnboardingTitle } from '../../../state/onboarding';
 
 @Component({
   selector: 'lentune-navbar',
@@ -6,4 +8,7 @@ import { Component } from '@angular/core';
   styleUrl: './navbar.component.scss',
   standalone: true,
 })
-export class NavbarComponent {}
+export class NavbarComponent {
+  #store = inject(Store);
+  title = this.#store.selectSignal(selectOnboardingTitle);
+}

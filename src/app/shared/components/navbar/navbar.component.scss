@@ -1,0 +1,17 @@
+.navbar {
+  background-color: #3f444c;
+  padding: 1rem;
+  border-radius: 5px;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-brand {
+  font-size: var(--font-size-xxl);
+  font-weight: bold;
+  color: #ffffff;
+}

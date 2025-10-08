@@ -1,0 +1,151 @@
+<main class="container">
+  <lentune-stepper [steps]="stepper"></lentune-stepper>
+
+  <ng-template #step1>
+    <h3>Welcome to Lentune Autamigo</h3>
+    <p class="mb-8">
+      You're moments away from smoother invoice handling. Let's get things set
+      up so supplier invoices start processing themselves.
+    </p>
+    <div class="center-content">
+      <img
+        src="assets/images/welcome-image.png"
+        alt="Welcome card"
+        style="width: 100%; max-width: 400px"
+      />
+    </div>
+  </ng-template>
+
+  <ng-template #step2>
+    <h3>Integrations</h3>
+    <p>Plug in your platforms and let the automation begin.</p>
+    <lentune-card
+      ><div class="integration-card">
+        <img
+          src="assets/images/simpro.png"
+          alt="Simpro logo"
+          style="width: 100%; max-width: 60px; height: 60px"
+        />
+        <div class="card-content">
+          <h3 class="m-0">Simpro</h3>
+          <p class="m-0">Send all your invoices straight into Simpro.<br /></p>
+          <p class="learn-more m-0">
+            Learn more
+            <img
+              class="learn-more-icon"
+              src="assets/icons/new-tab.png"
+              alt="Open in new tab"
+            />
+          </p>
+        </div>
+        <button class="button-secondary">Connect</button>
+      </div></lentune-card
+    >
+    <lentune-card
+      ><div class="integration-card">
+        <img
+          src="assets/images/xero.png"
+          alt="Xero logo"
+          style="width: 100%; max-width: 60px; height: 60px"
+        />
+        <div class="card-content">
+          <h3 class="m-0">Xero</h3>
+          <p class="m-0">
+            Keep your accounting sorted with direct Xero sync.<br />
+          </p>
+          <p class="learn-more m-0">
+            Learn more
+            <img
+              class="learn-more-icon"
+              src="assets/icons/new-tab.png"
+              alt="Open in new tab"
+            />
+          </p>
+        </div>
+        <button class="button-secondary">Connect</button>
+      </div></lentune-card
+    >
+    <div class="spacer"></div>
+  </ng-template>
+
+  <ng-template #step3>
+    <h3>Connect Your Email</h3>
+    <p>
+      We'll pull supplier invoices straight from your accounts payable inbox and
+      send them into Simpro and Xero. Just connect the email where you usually
+      receive invoices.
+    </p>
+    <p>
+      Not ready for this step? You can skip it for now and upload invoices
+      manually.
+    </p>
+    <p>
+      By connecting, you are agreeing to the <span>terms and conditions</span>.
+    </p>
+    <div class="email-connect-buttons">
+      <button class="button-secondary">
+        <img
+          class="icon learn-more-icon"
+          src="assets/icons/ms.png"
+          alt="Microsoft"
+        />Connect with Microsoft
+      </button>
+      <button class="button-secondary">
+        <img
+          class="icon learn-more-icon"
+          src="assets/icons/gmail.png"
+          alt="Gmail"
+        />Connect with Gmail
+      </button>
+    </div>
+    <div class="spacer"></div>
+  </ng-template>
+
+  <ng-template #step4>
+    <h3>Preferences</h3>
+    <p>
+      Let's make things even easier. Turn on auto-check, and we'll use AI to
+      review your invoices. If everything checks out, we'll send them into
+      Simpro—no need to manually process.
+    </p>
+    <div class="toggle-invoice">
+      <h5 class="m-0">Auto-process my invoices</h5>
+      <img
+        class="icon"
+        src="assets/icons/i.png"
+        alt="i icon"
+        style="width: 20px; margin-right: auto"
+      />
+      <lentune-toggle-switch></lentune-toggle-switch>
+    </div>
+    <p class="mt-0">
+      We'll only process invoices that pass all out checks. Anything that needs
+      a second look will go to your review screen instead. Here's what we'll
+      check:<br />
+      Supplier<br />
+      Invoice date<br />
+      Invoice number<br />
+      Amount<br />
+      Purchase order number
+    </p>
+    <div class="spacer"></div>
+  </ng-template>
+
+  <ng-template #step5>
+    <h3>You're All Set!</h3>
+    <p>
+      Thanks for setting things up—we'll take it from here. Lentune's now
+      working in the background to keep your invoice admin sorted.
+    </p>
+    <p class="mb-8">
+      Need a hand? Visit our help center or reach out to support anytime.
+    </p>
+    <div class="center-content">
+      <img
+        src="assets/images/all-set-image.png"
+        alt="All set"
+        style="width: 100%; max-width: 400px"
+      />
+    </div>
+  </ng-template>
+</main>

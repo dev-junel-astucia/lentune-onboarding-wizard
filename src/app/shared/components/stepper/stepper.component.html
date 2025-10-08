@@ -1,0 +1,33 @@
+<div class="stepper-container">
+  <div class="stepper-header">{{ displayTitle() }}</div>
+  <div class="stepper-wrapper" [ngClass]="hasBorder() ? 'bordered' : ''">
+    <div class="stepper-content">
+      <ng-container *ngIf="steps[currentStep() - 1]">
+        <ng-container
+          *ngTemplateOutlet="steps[currentStep() - 1].content"
+        ></ng-container>
+      </ng-container>
+
+      <div class="stepper-actions">
+        <span *ngIf="canSkip()" class="skip-button" (click)="skipStep()"
+          >Skip</span
+        >
+        <button
+          *ngIf="showPrevious()"
+          class="button-secondary button-right"
+          (click)="previousStep()"
+          [disabled]="currentStep() === 0"
+        >
+          Previous
+        </button>
+        <button
+          class="button-primary button-right"
+          (click)="nextStep()"
+          [disabled]="currentStep() === steps.length"
+        >
+          {{ displayPrimaryBButtonText() }}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -9,6 +9,13 @@ export enum RoutePath {
 }
 
 export const appRoutes: Routes = [
+  {
+    path: RoutePath.Dashboard,
+    loadComponent: () =>
+      import('./features/dashboard/dashboard.component').then(
+        (m) => m.DashboardComponent
+      ),
+  },
   { path: '', redirectTo: RoutePath.Dashboard, pathMatch: 'full' },
   { path: '**', redirectTo: RoutePath.Dashboard },
 ];

@@ -1,4 +1,109 @@
-/* You can add global styles to this file, and also import other style files */
-.invalid-field {
-  color: red;
+:root {
+  // colors
+  --background-color: #ffffff;
+  --text-color: #000000;
+
+  // font sizes
+  --font-size-xs: 0.5rem;
+  --font-size-sm: 0.75rem;
+  --font-size-md: 1rem;
+  --font-size-lg: 1.25rem;
+  --font-size-xl: 1.5rem;
+  --font-size-xxl: 2rem;
+
+  // fonts
+  --font-primary: Arial, Helvetica, sans-serif;
+
+  //buttons
+  --button-primary-bg-color: #a76eef;
+  --button-primary-text-color: #ffffff;
+  --button-secondary-border-color: #a76eef;
+  --button-secondary-text-color: #a76eef;
+  --button-disabled-bg-color: #817a97;
+  --button-disabled-text-color: #aeaab5;
+}
+
+html,
+body {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-md);
+  color: var(--text-color);
+  background-color: var(--background-color);
+}
+
+p {
+  color: #7e8086;
+}
+
+.m-0 {
+  margin: 0;
+}
+
+.m-1 {
+  margin: 0.25rem;
+}
+
+.mt-0 {
+  margin-top: 0;
+}
+
+.mt-2 {
+  margin-top: 0.5rem;
+}
+
+.mt-4 {
+  margin-top: 1rem;
+}
+
+.mb-1 {
+  margin-bottom: 0.25rem;
+}
+
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
+.mb-8 {
+  margin-bottom: 2rem;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+}
+
+.button-primary {
+  font-weight: bold;
+  background: var(--button-primary-bg-color);
+  border: none;
+  color: var(--button-primary-text-color);
+  padding: 10px 40px;
+  border-radius: 25px;
+  font-size: var(--font-size-sm);
+  cursor: pointer;
+}
+
+.button-secondary {
+  font-weight: bold;
+  background: var(--button-secondary-bg-color);
+  border: solid 1px var(--button-secondary-border-color);
+  color: var(--button-secondary-text-color);
+  padding: 10px 40px;
+  border-radius: 25px;
+  font-size: var(--font-size-sm);
+  cursor: pointer;
+}
+
+.disabled {
+  background: var(--button-disabled-bg-color);
+  color: var(--button-disabled-text-color);
+  cursor: not-allowed;
+}
+
+.spacer {
+  margin-bottom: 6rem;
 }

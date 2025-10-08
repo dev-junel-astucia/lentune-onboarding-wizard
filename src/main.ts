@@ -10,6 +10,7 @@ import { provideEffects } from '@ngrx/effects';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 import { environment } from './environments/environment.prod';
 import { HttpClientModule } from '@angular/common/http';
+import { OnboardingEffect, onboardingReducer } from './app/state/onboarding';
 
 function bootstrap() {
   bootstrapApplication(AppComponent, {
@@ -18,8 +19,11 @@ function bootstrap() {
       importProvidersFrom(BrowserModule, HttpClientModule),
       { provide: APP_ID, useValue: 'serverApp' },
       { provide: APP_BASE_HREF, useValue: '/lentune-onboarding-wizard' },
-      provideStore({}, { metaReducers: [localStorageSyncReducer] }),
-      provideEffects([]),
+      provideStore(
+        { onboarding: onboardingReducer },
+        { metaReducers: [localStorageSyncReducer] }
+      ),
+      provideEffects([OnboardingEffect]),
       provideStoreDevtools({
         maxAge: 25,
         logOnly: environment.production,
