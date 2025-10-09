@@ -8,12 +8,15 @@ import {
 import { SharedModule } from '../../shared/shared-module';
 import { OnboardingTitles } from '../../shared/model/onboarding.model';
 import { Steps } from '../../shared/model/stepper.model';
+import { EmailSetupComponent } from '../email-setup/email-setup.component';
+import { Store } from '@ngrx/store';
+import { HideSkipStep, ShowSkipStep } from '../../state/onboarding';
 
 @Component({
   selector: 'lentune-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss'],
-  imports: [SharedModule],
+  imports: [SharedModule, EmailSetupComponent],
   standalone: true,
 })
 export class DashboardComponent {
@@ -23,8 +26,13 @@ export class DashboardComponent {
   @ViewChild('step4') step4!: TemplateRef<any>;
   @ViewChild('step5') step5!: TemplateRef<any>;
 
+  #store = inject(Store);
   #cdr = inject(ChangeDetectorRef);
   stepper = [] as Steps[];
+  isEmailConnected: boolean = false;
+  emailConnected: string = '';
+
+  email: string = ''; // This is just temporary and for visual only
 
   ngAfterViewInit() {
     this.stepper = [
@@ -57,5 +65,26 @@ export class DashboardComponent {
     ];
 
     this.#cdr.detectChanges();
+  }
+
+  // This methods can add on the state management later, but we wont be doing that for the sake of this task
+  connectOnMicrosoft() {
+    this.isEmailConnected = true;
+    this.emailConnected = 'Microsoft';
+    this.email = 'email_address@microsoft.com';
+    this.#store.dispatch(HideSkipStep());
+  }
+
+  connectOnGmail() {
+    this.isEmailConnected = true;
+    this.emailConnected = 'Gmail';
+    this.email = 'email_address@gmail.com';
+    this.#store.dispatch(HideSkipStep());
+  }
+
+  disconnectEmail() {
+    this.isEmailConnected = false;
+    this.emailConnected = '';
+    this.#store.dispatch(ShowSkipStep());
   }
 }

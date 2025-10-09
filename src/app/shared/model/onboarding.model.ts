@@ -10,4 +10,5 @@ export type OnboardingState = {
   title: OnboardingTitles;
   step: number;
   skipped: number[];
+  hideSkip?: boolean;
 };

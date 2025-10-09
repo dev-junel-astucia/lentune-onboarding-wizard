@@ -1,0 +1,121 @@
+<div class="container">
+  <form [formGroup]="form">
+    <div class="row">
+      <div class="col mb-2">
+        <label for="pullInvoiceFolder" class="form-label"
+          >Where should we pull invoices from?:<span class="label-requiered"
+            >*</span
+          ><img
+            class="icon"
+            src="assets/icons/i.png"
+            alt="i icon"
+            style="width: 16px; height: 16px; margin-right: auto"
+        /></label>
+        <select
+          class="form-control select mt-2"
+          id="pullInvoiceFolder"
+          name="pullInvoiceFolder"
+          formControlName="pullInvoiceFolder"
+        >
+          <option value="">-- Select Folder --</option>
+          <option value="Primary">Primary</option>
+          <option value="Deleted">Deleted</option>
+          <option value="Unknown">Unknown</option>
+        </select>
+        <div
+          class="invalid-field"
+          *ngIf="
+            form.controls.pullInvoiceFolder?.invalid &&
+            form.controls.pullInvoiceFolder?.touched
+          "
+        >
+          This field is required.
+        </div>
+      </div>
+      <div class="col mb-2">
+        <label for="storeInvoiceFolder" class="form-label"
+          >Where should we store processed invoices?:<span
+            class="label-requiered"
+            >*</span
+          ><img
+            class="icon"
+            src="assets/icons/i.png"
+            alt="i icon"
+            style="width: 16px; height: 16px; margin-right: auto"
+        /></label>
+        <select
+          class="form-control select mt-2"
+          id="storeInvoiceFolder"
+          name="storeInvoiceFolder"
+          formControlName="storeInvoiceFolder"
+        >
+          <option value="">-- Select Folder --</option>
+          <option value="Primary">Primary</option>
+          <option value="Deleted">Deleted</option>
+          <option value="Unknown">Unknown</option>
+        </select>
+        <div
+          class="invalid-field"
+          *ngIf="
+            form.controls.storeInvoiceFolder?.invalid &&
+            form.controls.storeInvoiceFolder?.touched
+          "
+        >
+          This field is required.
+        </div>
+      </div>
+      <div class="col mb-2">
+        <label for="failedInvoiceFolder" class="form-label"
+          >Where should we send failed invoices?:<span class="label-requiered"
+            >*</span
+          ><img
+            class="icon"
+            src="assets/icons/i.png"
+            alt="i icon"
+            style="width: 16px; height: 16px; margin-right: auto"
+        /></label>
+        <select
+          class="form-control select mt-2"
+          id="failedInvoiceFolder"
+          name="failedInvoiceFolder"
+          formControlName="failedInvoiceFolder"
+        >
+          <option value="">-- Select Folder --</option>
+          <option value="Primary">Primary</option>
+          <option value="Deleted">Deleted</option>
+          <option value="Unknown">Unknown</option>
+        </select>
+        <div
+          class="invalid-field"
+          *ngIf="
+            form.controls.failedInvoiceFolder?.invalid &&
+            form.controls.failedInvoiceFolder?.touched
+          "
+        >
+          This field is required.
+        </div>
+      </div>
+      <!-- <div class="col mt-3">
+        <button
+          type="button"
+          class="btn btn-primary"
+          (click)="createNewExpense()"
+          [disabled]="form.invalid"
+          *ngIf="!selectedItem"
+        >
+          Create New Expense
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          (click)="updateExpenseById(selectedItem)"
+          [disabled]="form.invalid"
+          *ngIf="selectedItem"
+        >
+          Update Expense
+        </button>
+      </div> -->
+    </div>
+    <div class="row"></div>
+  </form>
+</div>

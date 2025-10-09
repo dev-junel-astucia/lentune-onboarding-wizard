@@ -14,31 +14,8 @@ h5 {
   align-items: center;
 }
 
-.integration-card {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  gap: 0.5rem;
-
-  .card-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 0.5rem;
-    margin-right: auto;
-
-    .learn-more {
-      cursor: pointer;
-      display: flex;
-      gap: 0.25rem;
-      font-weight: bold;
-
-      .learn-more-icon {
-        width: 18px;
-      }
-    }
-  }
+.integration-button {
+  margin-top: auto;
 
   .button-secondary {
     padding: 0;
@@ -56,8 +33,24 @@ h5 {
 
   button {
     display: flex;
+    justify-content: center;
     align-items: center;
     width: 250px;
     gap: 0.25rem;
+  }
+}
+
+.email {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  font-weight: bold;
+
+  span {
+    color: green;
+  }
+
+  a {
+    cursor: pointer;
   }
 }

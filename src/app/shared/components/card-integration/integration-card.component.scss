@@ -1,0 +1,28 @@
+.integration-card {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+
+  .card-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-right: auto;
+
+    .learn-more {
+      color: var(--p-text-color);
+      cursor: pointer;
+      display: flex;
+      gap: 0.25rem;
+      font-weight: bold;
+      text-decoration: none;
+
+      .learn-more-icon {
+        width: 18px;
+      }
+    }
+  }
+}

@@ -19,85 +19,75 @@
   <ng-template #step2>
     <h3>Integrations</h3>
     <p>Plug in your platforms and let the automation begin.</p>
-    <lentune-card
-      ><div class="integration-card">
-        <img
-          src="assets/images/simpro.png"
-          alt="Simpro logo"
-          style="width: 100%; max-width: 60px; height: 60px"
-        />
-        <div class="card-content">
-          <h3 class="m-0">Simpro</h3>
-          <p class="m-0">Send all your invoices straight into Simpro.<br /></p>
-          <p class="learn-more m-0">
-            Learn more
-            <img
-              class="learn-more-icon"
-              src="assets/icons/new-tab.png"
-              alt="Open in new tab"
-            />
-          </p>
-        </div>
-        <button class="button-secondary">Connect</button>
-      </div></lentune-card
+    <lentune-integration-card
+      icon="assets/images/simpro.png"
+      header="Simpro"
+      description="Send all your invoices straight into Simpro."
+      link="https://www.simprogroup.com/"
     >
-    <lentune-card
-      ><div class="integration-card">
-        <img
-          src="assets/images/xero.png"
-          alt="Xero logo"
-          style="width: 100%; max-width: 60px; height: 60px"
-        />
-        <div class="card-content">
-          <h3 class="m-0">Xero</h3>
-          <p class="m-0">
-            Keep your accounting sorted with direct Xero sync.<br />
-          </p>
-          <p class="learn-more m-0">
-            Learn more
-            <img
-              class="learn-more-icon"
-              src="assets/icons/new-tab.png"
-              alt="Open in new tab"
-            />
-          </p>
-        </div>
+      <div class="integration-button">
         <button class="button-secondary">Connect</button>
-      </div></lentune-card
+      </div>
+    </lentune-integration-card>
+    <lentune-integration-card
+      icon="assets/images/xero.png"
+      header="Xero"
+      description="Keep your accounting sorted with direct Xero sync."
+      link="https://www.xero.com/"
     >
+      <div class="integration-button">
+        <button class="button-secondary">Connect</button>
+      </div>
+    </lentune-integration-card>
     <div class="spacer"></div>
   </ng-template>
 
   <ng-template #step3>
     <h3>Connect Your Email</h3>
-    <p>
-      We'll pull supplier invoices straight from your accounts payable inbox and
-      send them into Simpro and Xero. Just connect the email where you usually
-      receive invoices.
-    </p>
-    <p>
-      Not ready for this step? You can skip it for now and upload invoices
-      manually.
-    </p>
-    <p>
-      By connecting, you are agreeing to the <span>terms and conditions</span>.
-    </p>
-    <div class="email-connect-buttons">
-      <button class="button-secondary">
-        <img
-          class="icon learn-more-icon"
-          src="assets/icons/ms.png"
-          alt="Microsoft"
-        />Connect with Microsoft
-      </button>
-      <button class="button-secondary">
-        <img
-          class="icon learn-more-icon"
-          src="assets/icons/gmail.png"
-          alt="Gmail"
-        />Connect with Gmail
-      </button>
+    <div *ngIf="!isEmailConnected">
+      <p>
+        We'll pull supplier invoices straight from your accounts payable inbox
+        and send them into Simpro and Xero. Just connect the email where you
+        usually receive invoices.
+      </p>
+      <p>
+        Not ready for this step? You can skip it for now and upload invoices
+        manually.
+      </p>
+      <p>
+        By connecting, you are agreeing to the
+        <span>terms and conditions</span>.
+      </p>
+
+      <div class="email-connect-buttons">
+        <button class="button-secondary" (click)="connectOnMicrosoft()">
+          <img
+            class="icon learn-more-icon"
+            src="assets/icons/ms.png"
+            alt="Microsoft"
+          />Connect with Microsoft
+        </button>
+        <button class="button-secondary" (click)="connectOnGmail()">
+          <img
+            class="icon learn-more-icon"
+            src="assets/icons/gmail.png"
+            alt="Gmail"
+          />Connect with Gmail
+        </button>
+      </div>
     </div>
+    <div *ngIf="isEmailConnected">
+      <p>
+        Great! Your email's connected. Now we just need to know which folders to
+        use so we can sort your invoices behind the scenes.
+      </p>
+      <p class="email mb-8">
+        <span>Connection successful with {{ email }}</span
+        ><a class="disconnect-email" (click)="disconnectEmail()">Disconnect</a>
+      </p>
+      <lentune-email-setup></lentune-email-setup>
+    </div>
+
     <div class="spacer"></div>
   </ng-template>
 
@@ -114,7 +104,7 @@
         class="icon"
         src="assets/icons/i.png"
         alt="i icon"
-        style="width: 20px; margin-right: auto"
+        style="width: 16px; height: 16px; margin-right: auto"
       />
       <lentune-toggle-switch></lentune-toggle-switch>
     </div>

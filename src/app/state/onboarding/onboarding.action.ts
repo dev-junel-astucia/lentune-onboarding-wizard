@@ -22,6 +22,8 @@ export const RemoveSkippedStep = createAction(
   OnboardingActionTypes.REMOVE_SKIPPED_STEP,
   props<{ step: number }>()
 );
+export const ShowSkipStep = createAction(OnboardingActionTypes.SHOW_SKIP_STEP);
+export const HideSkipStep = createAction(OnboardingActionTypes.HIDE_SKIP_STEP);
 export const ResetOnboarding = createAction(
   OnboardingActionTypes.RESET_ONBOARDING
 );

@@ -16,3 +16,8 @@ export const selectOnboardingSkipped = createSelector(
   selectOnboardingState,
   (state) => state.skipped || []
 );
+
+export const isSkipHidden = createSelector(
+  selectOnboardingState,
+  (state) => state.hideSkip
+);

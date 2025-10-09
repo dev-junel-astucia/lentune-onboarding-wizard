@@ -7,6 +7,8 @@ import {
   ResetOnboarding,
   AddSkippedStep,
   RemoveSkippedStep,
+  ShowSkipStep,
+  HideSkipStep,
 } from './onboarding.action';
 import { OnboardingTitles } from '../../shared/model/onboarding.model';
 
@@ -16,6 +18,7 @@ export const initialOnboardingState = {
   title: OnboardingTitlesArr[0],
   step: 1,
   skipped: [] as number[],
+  hideSkip: false,
 };
 
 function moveToStep(state: any, toSkip = false) {
@@ -68,6 +71,14 @@ export const onboardingReducer = createReducer(
     skipped: state.skipped.includes(step)
       ? state.skipped.filter((s) => s !== step)
       : [...state.skipped],
+  })),
+  on(ShowSkipStep, (state): any => ({
+    ...state,
+    hideSkip: false,
+  })),
+  on(HideSkipStep, (state): any => ({
+    ...state,
+    hideSkip: true,
   })),
   on(ResetOnboarding, (): any => ({
     ...initialOnboardingState,

@@ -1,0 +1,23 @@
+<lentune-card
+  ><div class="integration-card">
+    <img
+      src="{{ icon }}"
+      alt="integration card logo"
+      style="width: 100%; max-width: 60px; height: 60px"
+    />
+    <div class="card-content">
+      <h3 class="m-0">{{ header }}</h3>
+      <p class="m-0">
+        {{ description }}
+      </p>
+      <a class="learn-more m-0" [href]="link" target="_blank" *ngIf="link">
+        Learn more
+        <img
+          class="learn-more-icon"
+          src="assets/icons/new-tab.png"
+          alt="Open in new tab"
+        />
+      </a>
+    </div>
+    <ng-content></ng-content></div
+></lentune-card>

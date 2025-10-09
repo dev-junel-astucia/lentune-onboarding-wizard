@@ -9,12 +9,14 @@ import {
 } from '@angular/core';
 import { Store } from '@ngrx/store';
 import {
+  isSkipHidden,
   NextOnboardingStep,
   PreviousOnboardingStep,
   selectOnboardingStep,
   SkipOnboardingStep,
 } from '../../../state/onboarding';
 import { Steps } from '../../model/stepper.model';
+import { FormStatusService } from '../../../services/form-status.service';
 
 @Component({
   selector: 'lentune-stepper',
@@ -28,7 +30,10 @@ export class StepperComponent {
   @Input() steps: Steps[] = [];
 
   #store = inject(Store);
+  #formStatusService = inject(FormStatusService);
   currentStep = this.#store.selectSignal(selectOnboardingStep);
+  isSkipHidden = this.#store.selectSignal(isSkipHidden);
+  isValid = this.#formStatusService.formValid;
 
   nextStep() {
     this.#store.dispatch(NextOnboardingStep());
@@ -64,5 +69,13 @@ export class StepperComponent {
 
   canSkip() {
     return this.steps[this.currentStep() - 1]?.canSkip;
+  }
+
+  canProceed() {
+    return this.isValid();
+  }
+
+  isDisabled() {
+    return this.currentStep() === this.steps.length;
   }
 }

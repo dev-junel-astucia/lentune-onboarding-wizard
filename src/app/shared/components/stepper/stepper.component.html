@@ -1,5 +1,12 @@
 <div class="stepper-container">
-  <div class="stepper-header">{{ displayTitle() }}</div>
+  <div class="stepper-header">
+    <img
+      class="icon learn-more-icon"
+      src="assets/icons/direction.png"
+      alt="direction"
+      style="width: 100%; max-width: 12px; height: 12px"
+    />{{ displayTitle() }}
+  </div>
   <div class="stepper-wrapper" [ngClass]="hasBorder() ? 'bordered' : ''">
     <div class="stepper-content">
       <ng-container *ngIf="steps[currentStep() - 1]">
@@ -9,7 +16,10 @@
       </ng-container>
 
       <div class="stepper-actions">
-        <span *ngIf="canSkip()" class="skip-button" (click)="skipStep()"
+        <span
+          *ngIf="!isSkipHidden() && canSkip()"
+          class="skip-button"
+          (click)="skipStep()"
           >Skip</span
         >
         <button
@@ -22,8 +32,9 @@
         </button>
         <button
           class="button-primary button-right"
+          [ngClass]="{ disabled: !canProceed() }"
           (click)="nextStep()"
-          [disabled]="currentStep() === steps.length"
+          [disabled]="isDisabled()"
         >
           {{ displayPrimaryBButtonText() }}
         </button>

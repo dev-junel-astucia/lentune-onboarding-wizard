@@ -5,5 +5,7 @@ export enum OnboardingActionTypes {
   SET_ONBOARDING_STEP = '[Onboarding] set onboarding step',
   ADD_SKIPPED_STEP = '[Onboarding] add skipped step',
   REMOVE_SKIPPED_STEP = '[Onboarding] remove skipped step',
+  SHOW_SKIP_STEP = '[Onboarding] show skip step',
+  HIDE_SKIP_STEP = '[Onboarding] hide skip step',
   RESET_ONBOARDING = '[Onboarding] reset onboarding',
 }
