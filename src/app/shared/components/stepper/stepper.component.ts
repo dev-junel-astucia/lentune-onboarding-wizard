@@ -55,7 +55,7 @@ export class StepperComponent {
     return this.steps[this.currentStep() - 1]?.title;
   }
 
-  displayPrimaryBButtonText() {
+  displayNextButtonText() {
     return this.currentStep() === this.steps.length
       ? "Let's Go!"
       : this.currentStep() === this.steps.length - 1
@@ -73,9 +73,5 @@ export class StepperComponent {
 
   canProceed() {
     return this.isValid();
-  }
-
-  isDisabled() {
-    return this.currentStep() === this.steps.length;
   }
 }

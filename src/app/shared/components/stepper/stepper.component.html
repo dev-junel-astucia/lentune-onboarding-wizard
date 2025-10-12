@@ -34,9 +34,9 @@
           class="button-primary button-right"
           [ngClass]="{ disabled: !canProceed() }"
           (click)="nextStep()"
-          [disabled]="isDisabled()"
+          [disabled]="!canProceed()"
         >
-          {{ displayPrimaryBButtonText() }}
+          {{ displayNextButtonText() }}
         </button>
       </div>
     </div>
