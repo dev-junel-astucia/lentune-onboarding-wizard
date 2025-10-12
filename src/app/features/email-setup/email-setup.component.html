@@ -1,7 +1,7 @@
 <div class="container">
   <form [formGroup]="form">
-    <div class="row">
-      <div class="col mb-2">
+    <div>
+      <div class="mb-2">
         <label for="pullInvoiceFolder" class="form-label"
           >Where should we pull invoices from?:<span class="label-requiered"
             >*</span
@@ -32,7 +32,7 @@
           This field is required.
         </div>
       </div>
-      <div class="col mb-2">
+      <div class="mb-2">
         <label for="storeInvoiceFolder" class="form-label"
           >Where should we store processed invoices?:<span
             class="label-requiered"
@@ -64,7 +64,7 @@
           This field is required.
         </div>
       </div>
-      <div class="col mb-2">
+      <div class="mb-2">
         <label for="failedInvoiceFolder" class="form-label"
           >Where should we send failed invoices?:<span class="label-requiered"
             >*</span
@@ -95,27 +95,6 @@
           This field is required.
         </div>
       </div>
-      <!-- <div class="col mt-3">
-        <button
-          type="button"
-          class="btn btn-primary"
-          (click)="createNewExpense()"
-          [disabled]="form.invalid"
-          *ngIf="!selectedItem"
-        >
-          Create New Expense
-        </button>
-        <button
-          type="button"
-          class="btn btn-primary"
-          (click)="updateExpenseById(selectedItem)"
-          [disabled]="form.invalid"
-          *ngIf="selectedItem"
-        >
-          Update Expense
-        </button>
-      </div> -->
     </div>
-    <div class="row"></div>
   </form>
 </div>
